@@ -5,7 +5,9 @@ import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class BasePage {
 	
@@ -75,6 +77,15 @@ public class BasePage {
 			// Se puede manejar la exception enviando a logs o un reporte.
 			return false;
 		}
+	}
+	
+	public void waitForVisibilityOfElement(By locator, Integer timeOutInSeconds) {
+		WebDriverWait wait = new WebDriverWait(driver, timeOutInSeconds);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+	}
+	
+	public String getTitle() {
+		return driver.getTitle();
 	}
 
 }

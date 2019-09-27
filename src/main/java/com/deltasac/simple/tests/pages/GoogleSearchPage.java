@@ -15,7 +15,7 @@ public class GoogleSearchPage {
 	}
 	
 	public void visit() {
-		driver.get("https://www.google.com.pe/");
+		driver.get(PageConstants.GOOGLE_URL);
 	}
 	
 	public void buscar(String query) {
